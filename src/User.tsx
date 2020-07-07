@@ -21,7 +21,7 @@ const usersMap = new Map<number, IUser>();
 usersMap.set(123, Ang);
 usersMap.set(456, Ying);
 
-const getUser = (userId: number) => async (): Promise<IUser> => {
+const getUser = async (userId: number): Promise<IUser> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (usersMap.has(userId)) {
@@ -33,8 +33,12 @@ const getUser = (userId: number) => async (): Promise<IUser> => {
   });
 };
 
+const fetchUser = (s:string, arg: number) => {
+  return getUser(arg);
+}
+
 const User = ({ userId }: IProps) => {
-  const { data, isFetching } = useQuery("user", getUser(userId));
+  const { data, isFetching } = useQuery(["user", userId], fetchUser);
   if (isFetching) {
     return <div>Loading</div>;
   }
