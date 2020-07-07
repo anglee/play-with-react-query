@@ -16,6 +16,9 @@
     "react": "^16.13.1",
     "react-app-rewired": "^2.1.5",
     "react-dom": "^16.13.1",
+    "react-json-view": "^1.19.1",
+    "react-query": "^2.4.13",
+    "react-query-devtools": "^2.2.1",
     "react-scripts": "3.4.1",
     "typescript": "^3.8.3"
   },
